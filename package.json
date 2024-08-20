@@ -1,5 +1,6 @@
 {
   "name": "jwt-auth-template-client-vue-3",
+  "description": "Template for client with user authentication based on JWT-auth.",
   "version": "0.0.0",
   "private": true,
   "type": "module",
