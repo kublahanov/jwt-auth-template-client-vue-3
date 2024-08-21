@@ -1,6 +1,6 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { RouterLink, RouterView } from 'vue-router';
+import HelloWorld from './components/HelloWorld.vue';
 </script>
 
 <template>
@@ -11,19 +11,27 @@ import HelloWorld from './components/HelloWorld.vue'
       <HelloWorld msg="You did it!" />
 
       <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <RouterLink :to="{ name: 'login' }">Login</RouterLink>
+        <RouterLink :to="{ name: 'register' }">Register</RouterLink>
       </nav>
     </div>
   </header>
 
-  <RouterView />
+  <section>
+    <RouterView />
+  </section>
 </template>
 
 <style scoped>
 header {
   line-height: 1.5;
   max-height: 100vh;
+}
+
+section {
+  display: flex;
+  place-items: center;
+  padding-top: calc(var(--section-gap) / 2);
 }
 
 .logo {
@@ -60,7 +68,6 @@ nav a:first-of-type {
   header {
     display: flex;
     place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
   }
 
   .logo {
