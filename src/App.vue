@@ -1,7 +1,15 @@
-<script setup></script>
+<script setup>
+</script>
 
 <template>
   <div class="container-fluid angled-gradient">
+    <div class="row">
+      <div class="col px-5 pt-4">
+        <span class="px-2"><RouterLink to="/">Home</RouterLink></span>
+        <span class="px-2"><RouterLink to="/login">Login</RouterLink></span>
+        <span class="px-2"><RouterLink to="/register">Register</RouterLink></span>
+      </div>
+    </div>
     <div class="row min-vh-100">
       <div class="col-sm-6 p-sm-5 p-4">
         <div class="card mw-600">
@@ -22,8 +30,11 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-6 text-center">
+      <div class="col-sm-6">
         <h1 class="mt-5">Image section</h1>
+        <div>
+          <RouterView />
+        </div>
       </div>
     </div>
   </div>
