@@ -32,7 +32,7 @@
       </div>
       <div class="col-sm-6">
         <h1 class="mt-5">Image section</h1>
-        <div>
+        <div class="router-wrapper mw-600 my-4">
           <RouterView />
         </div>
       </div>
@@ -46,5 +46,8 @@
 }
 .mw-600 {
   max-width: 600px;
+}
+.router-wrapper {
+  outline: 5px dashed lightcoral;
 }
 </style>

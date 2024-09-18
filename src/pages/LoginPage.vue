@@ -1,21 +1,23 @@
 <template>
-  <div>
-    <h1>Вход</h1>
-    <form @submit.prevent="login">
-      <div>
-        <label for="email">Email</label>
-        <input v-model="email" type="email" id="email" required />
-      </div>
-      <div>
-        <label for="password">Пароль</label>
-        <input v-model="password" type="password" id="password" required />
-      </div>
-      <button type="submit">Войти</button>
-    </form>
-    <p>
-      Нет учетной записи?
-      <router-link to="/register">Зарегистрироваться</router-link>
-    </p>
+  <div class="card mw-600">
+    <div class="card-body p-sm-5 p-4">
+      <h4 class="card-title mb-3">Вход</h4>
+      <form @submit.prevent="login">
+        <div class="mb-3">
+          <label for="email" class="form-label">Е-мейл</label>
+          <input v-model="email" type="email" class="form-control" id="email" required />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Пароль</label>
+          <input v-model="password" type="password" class="form-control" id="password" required />
+        </div>
+        <button type="submit" class="btn btn-primary mt-2 mb-3">Войти</button>
+      </form>
+      <p>
+        <span class="me-3">Нет учетной записи?</span>
+        <router-link to="/register">Создать аккаунт</router-link>
+      </p>
+    </div>
   </div>
 </template>
 
