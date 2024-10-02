@@ -1,34 +1,37 @@
 <template>
-  <div>
-    <h1>Регистрация</h1>
-    <form @submit.prevent="register">
-      <div>
-        <label for="name">Имя</label>
-        <input v-model="name" type="text" id="name" required />
-      </div>
-      <div>
-        <label for="email">Email</label>
-        <input v-model="email" type="email" id="email" required />
-      </div>
-      <div>
-        <label for="password">Пароль</label>
-        <input v-model="password" type="password" id="password" required />
-      </div>
-      <div>
-        <label for="password_confirmation">Подтверждение пароля</label>
-        <input
-          v-model="password_confirmation"
-          type="password"
-          id="password_confirmation"
-          required
-        />
-      </div>
-      <button type="submit">Зарегистрироваться</button>
-    </form>
-    <p>
-      Уже есть учетная запись?
-      <router-link to="/login">Войти</router-link>
-    </p>
+  <div class="card mw-600">
+    <div class="card-body p-sm-5 p-4">
+      <h4 class="card-title mb-3">Регистрация</h4>
+      <form @submit.prevent="register">
+        <div class="mb-3">
+          <label for="name" class="form-label">Имя</label>
+          <input v-model="name" type="text" class="form-control" id="name" required />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Е-мейл</label>
+          <input v-model="email" type="email" class="form-control" id="email" required />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Пароль</label>
+          <input v-model="password" type="password" class="form-control" id="password" required />
+        </div>
+        <div class="mb-3">
+          <label for="password_confirmation" class="form-label">Подтверждение пароля</label>
+          <input
+            v-model="password_confirmation"
+            type="password"
+            class="form-control"
+            id="password_confirmation"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary mt-2 mb-3">Зарегистрироваться</button>
+      </form>
+      <p>
+        <span class="me-3">Уже есть учетная запись?</span>
+        <router-link to="/login">Войти</router-link>
+      </p>
+    </div>
   </div>
 </template>
 
@@ -52,10 +55,10 @@ const register = async () => {
       password: password.value,
       password_confirmation: password_confirmation.value
     });
-    router.push('/login');
+
+    await router.push('/login');
   } catch (error) {
     console.error('Ошибка при регистрации:', error);
-    alert('Ошибка при регистрации');
   }
 };
 </script>

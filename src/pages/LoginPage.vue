@@ -33,11 +33,14 @@ const router = useRouter();
 
 const login = async () => {
   try {
-    await authStore.login({ email: email.value, password: password.value });
-    router.push('/');
+    await authStore.login({
+      email: email.value,
+      password: password.value
+    });
+
+    await router.push('/');
   } catch (error) {
     console.error('Ошибка при входе:', error);
-    alert('Неправильный логин или пароль');
   }
 };
 </script>
