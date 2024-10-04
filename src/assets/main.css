@@ -1,4 +1,7 @@
 html, body {
-  /*min-width: 240px;*/
   overflow: clip;
+}
+
+.mw-600 {
+  max-width: 600px;
 }

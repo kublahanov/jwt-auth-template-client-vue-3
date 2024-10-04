@@ -1,5 +1,5 @@
 <template>
-  <div class="card mw-600">
+  <div class="card mw-600 rounded-4">
     <div class="card-body p-sm-5 p-4">
       <h4 class="card-title mb-3">Вход</h4>
       <form @submit.prevent="login">
