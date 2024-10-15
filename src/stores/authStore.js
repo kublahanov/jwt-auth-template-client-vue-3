@@ -7,9 +7,11 @@ export const useAuthStore = defineStore('authStore', {
     token: localStorage.getItem('token') || null
   }),
   actions: {
+    isAuthenticated: (state) => Boolean(state?.user),
     async login(credentials) {
       try {
         const response = await api.post('/auth/login', credentials);
+        console.log('login', response);
         this.token = response.data.access_token;
         localStorage.setItem('token', this.token);
         await this.fetchUser();
@@ -27,7 +29,8 @@ export const useAuthStore = defineStore('authStore', {
     async fetchUser() {
       try {
         const response = await api.get('/auth/me');
-        this.user = response.data;
+        console.log('fetchUser', response);
+        this.user = response.data.user;
       } catch (error) {
         console.error('Ошибка при получении данных пользователя:', error);
       }
@@ -45,6 +48,7 @@ export const useAuthStore = defineStore('authStore', {
     async refreshToken() {
       try {
         const response = await api.post('/auth/refresh');
+        console.log('refreshToken', response);
         this.token = response.data.access_token;
         localStorage.setItem('token', this.token);
       } catch (error) {

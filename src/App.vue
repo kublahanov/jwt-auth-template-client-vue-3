@@ -1,13 +1,11 @@
-<script setup>
-import BigLogo from '@/components/BigLogo.vue';
-</script>
-
 <template>
   <div class="container-fluid angled-gradient">
     <div class="row">
       <div class="col px-5 pt-4">
         <span class="px-2"><RouterLink to="/">Home</RouterLink></span>
-        <span class="px-2"><RouterLink to="/login">Login</RouterLink></span>
+        <span v-if="isAuthenticated" class="px-2">
+          <RouterLink to="/login">Login</RouterLink>
+        </span>
         <span class="px-2"><RouterLink to="/register">Register</RouterLink></span>
       </div>
     </div>
@@ -21,6 +19,14 @@ import BigLogo from '@/components/BigLogo.vue';
     </div>
   </div>
 </template>
+
+<script setup>
+import BigLogo from '@/components/BigLogo.vue';
+import { useAuthStore } from '@/stores/authStore.js';
+
+const authStore = useAuthStore();
+const isAuthenticated = authStore.isAuthenticated;
+</script>
 
 <style scoped>
 .angled-gradient {

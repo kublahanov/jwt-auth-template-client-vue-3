@@ -4,7 +4,7 @@
       <h4 class="card-title mb-3">Главная страница</h4>
       <div v-if="authStore.user">
         <p>Добро пожаловать, {{ authStore.user.name }}!</p>
-        <button @click="logout">Выйти</button>
+        <button type="submit" class="btn btn-primary mt-2 mb-3" @click="logout">Выйти</button>
       </div>
       <div v-else>
         <p>Привет, Гость!</p>
