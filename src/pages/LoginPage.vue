@@ -5,11 +5,25 @@
       <form @submit.prevent="login">
         <div class="mb-3">
           <label for="email" class="form-label">Е-мейл</label>
-          <input v-model="email" type="email" class="form-control" id="email" required />
+          <input
+            v-model="email"
+            type="email"
+            class="form-control"
+            id="email"
+            autocomplete="email"
+            required
+          />
         </div>
         <div class="mb-3">
           <label for="password" class="form-label">Пароль</label>
-          <input v-model="password" type="password" class="form-control" id="password" required />
+          <input
+            v-model="password"
+            type="password"
+            class="form-control"
+            id="password"
+            autocomplete="password"
+            required
+          />
         </div>
         <button type="submit" class="btn btn-primary mt-2 mb-3">Войти</button>
       </form>

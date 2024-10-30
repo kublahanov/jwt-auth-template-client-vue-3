@@ -3,10 +3,13 @@
     <div class="row">
       <div class="col px-5 pt-4">
         <span class="px-2"><RouterLink to="/">Home</RouterLink></span>
-        <span v-if="isAuthenticated" class="px-2">
-          <RouterLink to="/login">Login</RouterLink>
+        <span v-if="authStore.isAuthenticated">
+          <RouterLink to="/profile">Profile</RouterLink>
         </span>
-        <span class="px-2"><RouterLink to="/register">Register</RouterLink></span>
+        <span v-if="!authStore.isAuthenticated">
+          <span class="px-2"><RouterLink to="/login">Login</RouterLink></span>
+          <span class="px-2"><RouterLink to="/register">Register</RouterLink></span>
+        </span>
       </div>
     </div>
     <div class="row min-vh-100">
@@ -25,7 +28,6 @@ import BigLogo from '@/components/BigLogo.vue';
 import { useAuthStore } from '@/stores/authStore.js';
 
 const authStore = useAuthStore();
-const isAuthenticated = authStore.isAuthenticated;
 </script>
 
 <style scoped>
