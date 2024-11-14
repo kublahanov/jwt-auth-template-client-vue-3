@@ -23,23 +23,10 @@ router.beforeEach(async (to, from, next) => {
   const authStore = useAuthStore();
 
   if (to.meta.requiresAuth && !authStore.isAuthenticated) {
-    // console.log('NEED AUTH!');
     next('/login');
-
-    // try {
-    //   console.log('TRY');
-    //   await authStore.refreshToken();
-    //   await authStore.fetchUser();
-    //   next();
-    // } catch (error) {
-    //   console.log('CATCH');
-    //   next('/login');
-    // }
   } else if (to.meta.requiresGuest && authStore.isAuthenticated) {
-    // console.log('NEED GUEST!');
     next('/');
   } else {
-    // console.log('NEXT');
     next();
   }
 });

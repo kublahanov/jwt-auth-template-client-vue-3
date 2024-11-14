@@ -28,6 +28,16 @@ import BigLogo from '@/components/BigLogo.vue';
 import { useAuthStore } from '@/stores/authStore.js';
 
 const authStore = useAuthStore();
+
+// try {
+//   console.log('TRY');
+//   await authStore.refreshToken();
+//   await authStore.fetchUser();
+// } catch (error) {
+//   console.log('CATCH');
+//   console.log(error);
+// }
+
 </script>
 
 <style scoped>

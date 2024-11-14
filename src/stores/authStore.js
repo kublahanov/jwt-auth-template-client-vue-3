@@ -71,6 +71,7 @@ export const useAuthStore = defineStore('authStore', {
         console.log('refreshToken', response);
         this.token = response.data.access_token;
         localStorage.setItem('token', this.token);
+        await this.fetchUser();
       } catch (error) {
         console.error('Ошибка при обновлении токена:', error);
       }
