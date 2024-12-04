@@ -11,4 +11,8 @@
 
 <script setup></script>
 
-<style scoped></style>
+<style scoped>
+h1 {
+  font-size: 1.5rem;
+}
+</style>
