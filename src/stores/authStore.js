@@ -55,11 +55,12 @@ export const useAuthStore = defineStore('authStore', {
 
     async logout() {
       try {
-        await api.post('/auth/logout');
         this.token = null;
         this.user = null;
         localStorage.removeItem('token');
         localStorage.removeItem('user');
+
+        await api.post('/auth/logout');
       } catch (error) {
         console.error('Ошибка при выходе:', error);
       }
