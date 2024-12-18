@@ -10,6 +10,10 @@
           <span class="px-2"><RouterLink to="/login">Login</RouterLink></span>
           <span class="px-2"><RouterLink to="/register">Register</RouterLink></span>
         </span>
+        <span class="ms-3">
+          <span v-if="serverStatusStore.isServerAvailable" class="badge text-bg-success">Server is on</span>
+          <span v-else class="badge text-bg-danger">Server is off</span>
+        </span>
       </div>
     </div>
     <div class="row min-vh-100">
@@ -26,8 +30,10 @@
 <script setup>
 import BigLogo from '@/components/BigLogo.vue';
 import { useAuthStore } from '@/stores/authStore.js';
+import { useServerStatusStore } from '@/stores/serverStatusStore.js';
 
 const authStore = useAuthStore();
+const serverStatusStore = useServerStatusStore();
 
 // try {
 //   console.log('TRY');
