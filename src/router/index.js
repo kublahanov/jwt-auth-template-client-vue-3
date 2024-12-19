@@ -4,6 +4,7 @@ import LoginPage from '../pages/LoginPage.vue';
 import RegisterPage from '../pages/RegisterPage.vue';
 import ProfilePage from '@/pages/ProfilePage.vue';
 import ErrorNotFound from '@/pages/ErrorNotFound.vue';
+import AboutPage from '@/pages/AboutPage.vue';
 import { useAuthStore } from '../stores/authStore';
 
 const routes = [
@@ -11,6 +12,7 @@ const routes = [
   { path: '/profile', component: ProfilePage, meta: { requiresAuth: true } },
   { path: '/login', component: LoginPage, meta: { requiresGuest: true } },
   { path: '/register', component: RegisterPage, meta: { requiresGuest: true } },
+  { path: '/about', component: AboutPage, meta: {} },
   { path: '/:catchAll(.*)*', component: ErrorNotFound }
 ];
 

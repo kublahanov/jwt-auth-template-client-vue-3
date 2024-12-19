@@ -2,17 +2,20 @@
   <div class="container-fluid angled-gradient">
     <div class="row">
       <div class="col px-5 pt-4">
-        <span class="px-2"><RouterLink to="/">Home</RouterLink></span>
+        <span class="px-2"><RouterLink to="/">Домой</RouterLink></span>
         <span v-if="authStore.isAuthenticated">
-          <RouterLink to="/profile">Profile</RouterLink>
+          <RouterLink to="/profile">Профиль</RouterLink>
         </span>
         <span v-if="!authStore.isAuthenticated">
-          <span class="px-2"><RouterLink to="/login">Login</RouterLink></span>
-          <span class="px-2"><RouterLink to="/register">Register</RouterLink></span>
+          <span class="px-2"><RouterLink to="/login">Вход</RouterLink></span>
+          <span class="px-2"><RouterLink to="/register">Регистрация</RouterLink></span>
+        </span>
+        <span>
+          <span class="px-2"><RouterLink to="/about">О сайте</RouterLink></span>
         </span>
         <span class="ms-3">
-          <span v-if="serverStatusStore.isServerAvailable" class="badge text-bg-success">Server is on</span>
-          <span v-else class="badge text-bg-danger">Server is off</span>
+          <span v-if="serverStatusStore.isServerAvailable" class="badge text-bg-success">Сервер работает</span>
+          <span v-else class="badge text-bg-danger">Сервер недоступен</span>
         </span>
       </div>
     </div>
