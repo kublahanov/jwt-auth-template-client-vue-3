@@ -16,6 +16,7 @@
         <span class="ms-3">
           <span v-if="serverStatusStore.isServerAvailable" class="badge text-bg-success">Сервер работает</span>
           <span v-else class="badge text-bg-danger">Сервер недоступен</span>
+          <span class="ms-2 badge text-bg-light">{{ serverStatusStore.mustShowManualRefresh }}</span>
         </span>
       </div>
     </div>

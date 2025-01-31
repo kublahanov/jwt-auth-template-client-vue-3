@@ -16,6 +16,6 @@ app.use(router);
  * Проверка статуса сервера.
  */
 const serverStatusStore = useServerStatusStore();
-serverStatusStore.startServerCheck(10000);
+serverStatusStore.startServerCheck();
 
 app.mount('#app');
