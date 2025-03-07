@@ -1,22 +1,36 @@
 <template>
   <div class="container-fluid angled-gradient">
     <div class="row">
-      <div class="col px-5 pt-4">
-        <span class="px-2"><RouterLink to="/">Домой</RouterLink></span>
-        <span v-if="authStore.isAuthenticated">
-          <RouterLink to="/profile">Профиль</RouterLink>
+      <div class="col px-4 px-sm-5 pt-4">
+        <!-- Пункты меню -->
+        <span class="pb-1">
+          <span class="pe-2"><RouterLink to="/">Домой</RouterLink></span>
+          <span v-if="authStore.isAuthenticated">
+            <span class="pe-2"><RouterLink to="/profile">Профиль</RouterLink></span>
+          </span>
+          <span v-else>
+            <span class="pe-2"><RouterLink to="/login">Вход</RouterLink></span>
+            <span class="pe-2"><RouterLink to="/register">Регистрация</RouterLink></span>
+          </span>
+          <span class="pe-2"><RouterLink to="/about">О сайте</RouterLink></span>
         </span>
-        <span v-if="!authStore.isAuthenticated">
-          <span class="px-2"><RouterLink to="/login">Вход</RouterLink></span>
-          <span class="px-2"><RouterLink to="/register">Регистрация</RouterLink></span>
-        </span>
-        <span>
-          <span class="px-2"><RouterLink to="/about">О сайте</RouterLink></span>
-        </span>
-        <span class="ms-3">
-          <span v-if="serverStatusStore.isServerAvailable" class="badge text-bg-success">Сервер работает</span>
-          <span v-else class="badge text-bg-danger">Сервер недоступен</span>
-          <span class="ms-2 badge text-bg-light">{{ serverStatusStore.mustShowManualRefresh }}</span>
+        <!-- Статус сервера и кнопка обновления -->
+        <span class="me-2">
+          <span v-if="serverStatusStore.isServerAvailable" class="badge text-bg-success">
+            Сервер работает
+          </span>
+          <span v-else class="badge text-bg-danger me-2">
+            Сервер недоступен
+          </span>
+          <button
+            v-if="serverStatusStore.mustShowManualRefresh"
+            type="button"
+            class="btn btn-sm btn-light"
+            title="Обновить статус сервера"
+            style="padding: 1px 5px"
+          >
+            <i class="bi bi-arrow-repeat"></i>
+          </button>
         </span>
       </div>
     </div>
@@ -47,7 +61,6 @@ const serverStatusStore = useServerStatusStore();
 //   console.log('CATCH');
 //   console.log(error);
 // }
-
 </script>
 
 <style scoped>
