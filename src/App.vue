@@ -1,41 +1,31 @@
 <template>
   <div class="container-fluid angled-gradient">
     <div class="row">
-      <div class="col px-4 px-sm-5 pt-4">
-        <!-- Пункты меню -->
-        <span class="pb-1">
-          <span class="pe-2"><RouterLink to="/">Домой</RouterLink></span>
-          <span v-if="authStore.isAuthenticated">
-            <span class="pe-2"><RouterLink to="/profile">Профиль</RouterLink></span>
-          </span>
-          <span v-else>
-            <span class="pe-2"><RouterLink to="/login">Вход</RouterLink></span>
-            <span class="pe-2"><RouterLink to="/register">Регистрация</RouterLink></span>
-          </span>
-          <span class="pe-2"><RouterLink to="/about">О сайте</RouterLink></span>
-        </span>
-        <!-- Статус сервера и кнопка обновления -->
-        <span class="me-2">
-          <span v-if="serverStatusStore.isServerAvailable" class="badge text-bg-success">
-            Сервер работает
-          </span>
-          <span v-else class="badge text-bg-danger me-2">
-            Сервер недоступен
-          </span>
+      <div class="col-md-6 col-12">
+        <div class="px-4 px-sm-4 pt-4 menu-container">
+          <!-- Пункты меню -->
+          <span><RouterLink to="/">Домой</RouterLink></span>
+          <span v-if="authStore.isAuthenticated"><RouterLink to="/profile">Профиль</RouterLink></span>
+          <span v-if="!authStore.isAuthenticated"><RouterLink to="/login">Вход</RouterLink></span>
+          <span v-if="!authStore.isAuthenticated"><RouterLink to="/register">Регистрация</RouterLink></span>
+          <span><RouterLink to="/about">О сайте</RouterLink></span>
+          <!-- Статус сервера и кнопка обновления -->
+          <span v-if="serverStatusStore.isServerAvailable" class="badge text-bg-success">Сервер работает</span>
+          <span v-else class="badge text-bg-danger">Сервер недоступен</span>
           <button
             v-if="serverStatusStore.mustShowManualRefresh"
             type="button"
-            class="btn btn-sm btn-light"
+            class="btn btn-sm btn-light refresh-button"
             title="Обновить статус сервера"
-            style="padding: 1px 5px"
           >
             <i class="bi bi-arrow-repeat"></i>
           </button>
-        </span>
+        </div>
       </div>
+      <div class="col-md-6 d-none d-md-block"></div>
     </div>
     <div class="row min-vh-100">
-      <div class="col-md-6 col-12 p-md-5 p-4 pt-md-3 pt-3">
+      <div class="col-md-6 col-12 p-md-4 p-4 pt-md-3 pt-3">
         <RouterView />
       </div>
       <div class="col-md-6 d-none d-md-block">
@@ -66,5 +56,30 @@ const serverStatusStore = useServerStatusStore();
 <style scoped>
 .angled-gradient {
   background: linear-gradient(70deg, lightblue, pink);
+}
+
+.refresh-button {
+  padding: 0 7px;
+
+  i {
+    display: block;
+    margin-top: 2px;
+  }
+}
+
+.menu-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px 7px;
+
+  span {
+    text-wrap: nowrap;
+  }
+
+  span,button {
+    border: 0 dotted greenyellow;
+  }
 }
 </style>
